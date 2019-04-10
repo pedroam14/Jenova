@@ -7,7 +7,7 @@ class Jenova : public JenovaConsole
 {
 	struct Vector3D
 	{
-		double x, y, z;
+		double x = 0, y = 0, z = 0;
 	};
 	struct Triangle
 	{
@@ -30,6 +30,7 @@ public:
 	{
 		m_sAppName = L"3D Demo";
 	}
+
 	bool OnUserCreate() override
 	{
 		cube.triangles = {
@@ -79,7 +80,7 @@ public:
 		Fill(0, 0, ScreenWidth(), ScreenHeight(), PIXEL_SOLID, FG_BLACK);
 
 		Matrix4x4 matrixRotationZ, matrixRotationX;
-
+		Vector3D normal, line1, line2;
 		theta += 1.0 * elapsedTime;
 
 		//z rotation
@@ -92,62 +93,108 @@ public:
 
 		//x rotation
 		matrixRotationX.matrix[0][0] = 1;
-		matrixRotationX.matrix[1][1] = cos(theta*0.5);
-		matrixRotationX.matrix[1][2] = sin(theta*0.5);
-		matrixRotationX.matrix[2][1] = -sin(theta*0.5);
-		matrixRotationX.matrix[2][2] = cos(theta*0.5);
+		matrixRotationX.matrix[1][1] = cos(theta * 0.5);
+		matrixRotationX.matrix[1][2] = sin(theta * 0.5);
+		matrixRotationX.matrix[2][1] = -sin(theta * 0.5);
+		matrixRotationX.matrix[2][2] = cos(theta * 0.5);
 		matrixRotationX.matrix[3][3] = 1;
 
+		//maybe do this in parallel if it's worth it, otherwise doing it explicitly has less overhead than a simple for loop and actually *is* better for very short operations
 		//draw triangles
+#pragma omp parallel for
 		for (auto triangle : cube.triangles)
 		{
 			Triangle projectedTriangle, translatedTriangle, triangleRotatedZ, triangleRotatedZX;
-			
 
+			//z axis rotation
 			MultiplyMatrixVector(triangle.points[0], triangleRotatedZ.points[0], matrixRotationZ);
 			MultiplyMatrixVector(triangle.points[1], triangleRotatedZ.points[1], matrixRotationZ);
 			MultiplyMatrixVector(triangle.points[2], triangleRotatedZ.points[2], matrixRotationZ);
-
+			//x axis rotation
 			MultiplyMatrixVector(triangleRotatedZ.points[0], triangleRotatedZX.points[0], matrixRotationX);
 			MultiplyMatrixVector(triangleRotatedZ.points[1], triangleRotatedZX.points[1], matrixRotationX);
 			MultiplyMatrixVector(triangleRotatedZ.points[2], triangleRotatedZX.points[2], matrixRotationX);
 
+			//offset to the screen
 			translatedTriangle = triangleRotatedZX;
 			translatedTriangle.points[0].z += 3.0f;
 			translatedTriangle.points[1].z += 3.0f;
 			translatedTriangle.points[2].z += 3.0f;
 
-			//maybe do this in parallel if it's worth it, otherwise doing it explicitly has less overhead than a simple for loop and actually *is* better for very short operations
-			MultiplyMatrixVector(translatedTriangle.points[0], projectedTriangle.points[0], matrixProjection);
-			MultiplyMatrixVector(translatedTriangle.points[1], projectedTriangle.points[1], matrixProjection);
-			MultiplyMatrixVector(translatedTriangle.points[2], projectedTriangle.points[2], matrixProjection);
+			//normal calculation
 
-			//scaling the triangles into view
-			projectedTriangle.points[0].x += 1.0f;
-			projectedTriangle.points[0].y += 1.0f;
-			projectedTriangle.points[1].x += 1.0f;
-			projectedTriangle.points[1].y += 1.0f;
-			projectedTriangle.points[2].x += 1.0f;
-			projectedTriangle.points[2].y += 1.0f;
+			line1.x = translatedTriangle.points[1].x - translatedTriangle.points[0].x;
+			line1.y = translatedTriangle.points[1].y - translatedTriangle.points[0].y;
+			line1.z = translatedTriangle.points[1].z - translatedTriangle.points[0].z;
 
-			projectedTriangle.points[0].x *= .5f * (double)ScreenWidth();
-			projectedTriangle.points[0].y *= .5f * (double)ScreenHeight();
-			projectedTriangle.points[1].x *= .5f * (double)ScreenWidth();
-			projectedTriangle.points[1].y *= .5f * (double)ScreenHeight();
-			projectedTriangle.points[2].x *= .5f * (double)ScreenWidth();
-			projectedTriangle.points[2].y *= .5f * (double)ScreenHeight();
+			line2.x = translatedTriangle.points[2].x - translatedTriangle.points[0].x;
+			line2.y = translatedTriangle.points[2].y - translatedTriangle.points[0].y;
+			line2.z = translatedTriangle.points[2].z - translatedTriangle.points[0].z;
 
-			DrawTriangle(projectedTriangle.points[0].x, projectedTriangle.points[0].y,
-				projectedTriangle.points[1].x, projectedTriangle.points[1].y,
-				projectedTriangle.points[2].x, projectedTriangle.points[2].y, PIXEL_SOLID, FG_WHITE);
+			normal.x = line1.y * line2.z - line1.z * line2.y;
+			normal.y = line1.z * line2.x - line1.x * line2.z;
+			normal.z = line1.x * line2.y - line1.y * line2.x;
+
+			normal.x = line1.y * line2.z - line1.z * line2.y;
+			normal.y = line1.z * line2.x - line1.x * line2.z;
+			normal.z = line1.x * line2.y - line1.y * line2.x;
+
+			// It's normally normal to normalise the normal
+			float l = sqrt(normal.x * normal.x + normal.y * normal.y + normal.z * normal.z);
+			normal.x /= l;
+			normal.y /= l;
+			normal.z /= l;
+
+			//we only want to do the projection if we can see it, the normal z value being less than zero which means it's facing the screen
+			//if (normal.z < 0)
+			//actually!!!! we want to calculate if it's visible or not in respect to the camera
+			if (normal.x * (translatedTriangle.points[0].x - vectorCamera.x) +
+				normal.y * (translatedTriangle.points[0].y - vectorCamera.y) +
+				normal.z * (translatedTriangle.points[0].z - vectorCamera.z) < 0.0)
+			{
+				//3D -> 2D projection
+
+				MultiplyMatrixVector(translatedTriangle.points[0], projectedTriangle.points[0], matrixProjection);
+				MultiplyMatrixVector(translatedTriangle.points[1], projectedTriangle.points[1], matrixProjection);
+				MultiplyMatrixVector(translatedTriangle.points[2], projectedTriangle.points[2], matrixProjection);
+
+				//scaling the triangles into view
+				projectedTriangle.points[0].x += 1.0;
+				projectedTriangle.points[0].y += 1.0;
+				projectedTriangle.points[1].x += 1.0;
+				projectedTriangle.points[1].y += 1.0;
+				projectedTriangle.points[2].x += 1.0;
+				projectedTriangle.points[2].y += 1.0;
+
+				projectedTriangle.points[0].x *= .5 * (double)ScreenWidth();
+				projectedTriangle.points[0].y *= .5 * (double)ScreenHeight();
+				projectedTriangle.points[1].x *= .5 * (double)ScreenWidth();
+				projectedTriangle.points[1].y *= .5 * (double)ScreenHeight();
+				projectedTriangle.points[2].x *= .5 * (double)ScreenWidth();
+				projectedTriangle.points[2].y *= .5 * (double)ScreenHeight();
+
+				//wireframe mode:
+				DrawTriangle(projectedTriangle.points[0].x, projectedTriangle.points[0].y,
+					projectedTriangle.points[1].x, projectedTriangle.points[1].y,
+					projectedTriangle.points[2].x, projectedTriangle.points[2].y, PIXEL_SOLID, FG_WHITE);
+				//solid mode:
+				FillTriangle(projectedTriangle.points[0].x, projectedTriangle.points[0].y,
+					projectedTriangle.points[1].x, projectedTriangle.points[1].y,
+					projectedTriangle.points[2].x, projectedTriangle.points[2].y, PIXEL_SOLID, FG_WHITE);
+			}
 		}
 
 		return true;
 	}
 
 private:
+#pragma region "Private variables"
 	Mesh cube;
 	Matrix4x4 matrixProjection;
+
+	Vector3D vectorCamera;
+
+#pragma endregion
 
 	//writes stuff directly to the output vector, without upsetting anything else
 	void MultiplyMatrixVector(Vector3D &i, Vector3D &o, Matrix4x4 &m)
@@ -169,7 +216,7 @@ private:
 int main()
 {
 	Jenova demo;
-	if (demo.ConstructConsole(256, 240, 4, 4))
+	if (demo.ConstructConsole(256 * 2, 240 * 2, 2, 2))
 	{
 		demo.Start();
 	}
