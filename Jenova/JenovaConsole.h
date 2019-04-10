@@ -25,7 +25,7 @@ enum COLOUR
 	FG_DARK_RED = 0x0004,
 	FG_DARK_MAGENTA = 0x0005,
 	FG_DARK_YELLOW = 0x0006,
-	FG_GREY = 0x0007, // Thanks MS :-/
+	FG_GREY = 0x0007, //thanks MS :^/
 	FG_DARK_GREY = 0x0008,
 	FG_BLUE = 0x0009,
 	FG_GREEN = 0x000A,
@@ -837,7 +837,7 @@ private:
 
 				// Update Title & Present Screen Buffer
 				wchar_t s[256];
-				swprintf_s(s, 256, L"OneLoneCoder.com - Console Game Engine - %s - FPS: %3.2f", m_sAppName.c_str(), 1.0f / fElapsedTime);
+				swprintf_s(s, 256, L"Jenova Game Engine - %s - FPS: %3.2f", m_sAppName.c_str(), 1.0f / fElapsedTime);
 				SetConsoleTitle(s);
 				WriteConsoleOutput(m_hConsole, m_bufScreen, { (short)m_nScreenWidth, (short)m_nScreenHeight }, { 0,0 }, &m_rectWindow);
 			}

@@ -1,0 +1,9 @@
+﻿  Jenova.cpp
+e:\pedro\jenova\jenova\jenova\jenovaconsole.h(645): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenovaconsole.h(985): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenovaconsole.h(1082): warning C4312: 'type cast': conversion from 'DWORD' to 'JenovaConsole *' of greater size
+e:\pedro\jenova\jenova\jenova\jenova.cpp(64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(105): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(104): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(103): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Jenova.vcxproj -> E:\Pedro\Jenova\Jenova\x64\Debug\Jenova.exe
