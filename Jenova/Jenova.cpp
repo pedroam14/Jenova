@@ -12,6 +12,9 @@ class Jenova : public JenovaConsole
 	struct Triangle
 	{
 		Vector3D points[3];
+
+		wchar_t sym;
+		short color;
 	};
 	struct Mesh
 	{
@@ -140,7 +143,7 @@ public:
 			normal.z = line1.x * line2.y - line1.y * line2.x;
 
 			// It's normally normal to normalise the normal
-			float l = sqrt(normal.x * normal.x + normal.y * normal.y + normal.z * normal.z);
+			double l = sqrt(normal.x * normal.x + normal.y * normal.y + normal.z * normal.z);
 			normal.x /= l;
 			normal.y /= l;
 			normal.z /= l;
@@ -152,11 +155,26 @@ public:
 				normal.y * (translatedTriangle.points[0].y - vectorCamera.y) +
 				normal.z * (translatedTriangle.points[0].z - vectorCamera.z) < 0.0)
 			{
+
+				Vector3D light_direction = { 0.0f, 0.0f, -1.0f };
+				//lighting
+				double l = l = sqrtf(light_direction.x*light_direction.x + light_direction.y*light_direction.y + light_direction.z*light_direction.z);
+				light_direction.x /= l; light_direction.y /= l; light_direction.z /= l;
+				double  dp = normal.x * light_direction.x + normal.y * light_direction.y + normal.z * light_direction.z;
+
+
+				//very console specific stuff, change to a proper render API later
+				CHAR_INFO c = GetColour(dp);
+				translatedTriangle.color = c.Attributes;
+				translatedTriangle.sym = c.Char.UnicodeChar;
+
 				//3D -> 2D projection
 
 				MultiplyMatrixVector(translatedTriangle.points[0], projectedTriangle.points[0], matrixProjection);
 				MultiplyMatrixVector(translatedTriangle.points[1], projectedTriangle.points[1], matrixProjection);
 				MultiplyMatrixVector(translatedTriangle.points[2], projectedTriangle.points[2], matrixProjection);
+				projectedTriangle.color = translatedTriangle.color;
+				projectedTriangle.sym = translatedTriangle.sym;
 
 				//scaling the triangles into view
 				projectedTriangle.points[0].x += 1.0;
@@ -174,13 +192,15 @@ public:
 				projectedTriangle.points[2].y *= .5 * (double)ScreenHeight();
 
 				//wireframe mode:
+				/*
 				DrawTriangle(projectedTriangle.points[0].x, projectedTriangle.points[0].y,
 					projectedTriangle.points[1].x, projectedTriangle.points[1].y,
-					projectedTriangle.points[2].x, projectedTriangle.points[2].y, PIXEL_SOLID, FG_WHITE);
+					projectedTriangle.points[2].x, projectedTriangle.points[2].y, projectedTriangle.sym, projectedTriangle.color);
+				*/
 				//solid mode:
 				FillTriangle(projectedTriangle.points[0].x, projectedTriangle.points[0].y,
 					projectedTriangle.points[1].x, projectedTriangle.points[1].y,
-					projectedTriangle.points[2].x, projectedTriangle.points[2].y, PIXEL_SOLID, FG_WHITE);
+					projectedTriangle.points[2].x, projectedTriangle.points[2].y, projectedTriangle.sym, projectedTriangle.color);
 			}
 		}
 
@@ -212,11 +232,43 @@ private:
 			o.z /= w;
 		}
 	};
+	CHAR_INFO GetColour(double lum)
+	{
+		short bg_col, fg_col;
+		wchar_t sym;
+		int pixel_bw = (int)(13.0f*lum);
+		switch (pixel_bw)
+		{
+		case 0: bg_col = BG_BLACK; fg_col = FG_BLACK; sym = PIXEL_SOLID; break;
+
+		case 1: bg_col = BG_BLACK; fg_col = FG_DARK_GREY; sym = PIXEL_QUARTER; break;
+		case 2: bg_col = BG_BLACK; fg_col = FG_DARK_GREY; sym = PIXEL_HALF; break;
+		case 3: bg_col = BG_BLACK; fg_col = FG_DARK_GREY; sym = PIXEL_THREEQUARTERS; break;
+		case 4: bg_col = BG_BLACK; fg_col = FG_DARK_GREY; sym = PIXEL_SOLID; break;
+
+		case 5: bg_col = BG_DARK_GREY; fg_col = FG_GREY; sym = PIXEL_QUARTER; break;
+		case 6: bg_col = BG_DARK_GREY; fg_col = FG_GREY; sym = PIXEL_HALF; break;
+		case 7: bg_col = BG_DARK_GREY; fg_col = FG_GREY; sym = PIXEL_THREEQUARTERS; break;
+		case 8: bg_col = BG_DARK_GREY; fg_col = FG_GREY; sym = PIXEL_SOLID; break;
+
+		case 9:  bg_col = BG_GREY; fg_col = FG_WHITE; sym = PIXEL_QUARTER; break;
+		case 10: bg_col = BG_GREY; fg_col = FG_WHITE; sym = PIXEL_HALF; break;
+		case 11: bg_col = BG_GREY; fg_col = FG_WHITE; sym = PIXEL_THREEQUARTERS; break;
+		case 12: bg_col = BG_GREY; fg_col = FG_WHITE; sym = PIXEL_SOLID; break;
+		default:
+			bg_col = BG_BLACK; fg_col = FG_BLACK; sym = PIXEL_SOLID;
+		}
+
+		CHAR_INFO c;
+		c.Attributes = bg_col | fg_col;
+		c.Char.UnicodeChar = sym;
+		return c;
+	}
 };
 int main()
 {
 	Jenova demo;
-	if (demo.ConstructConsole(256 * 2, 240 * 2, 2, 2))
+	if (demo.ConstructConsole(256*2, 240*2, 2, 2))
 	{
 		demo.Start();
 	}

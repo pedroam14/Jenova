@@ -4,12 +4,9 @@ e:\pedro\jenova\jenova\jenova\jenovaconsole.h(651): warning C4244: 'argument': c
 e:\pedro\jenova\jenova\jenova\jenovaconsole.h(652): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 e:\pedro\jenova\jenova\jenova\jenovaconsole.h(985): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
 e:\pedro\jenova\jenova\jenova\jenovaconsole.h(1082): warning C4312: 'type cast': conversion from 'DWORD' to 'JenovaConsole *' of greater size
-e:\pedro\jenova\jenova\jenova\jenova.cpp(67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(143): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(179): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(178): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(177): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(183): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(182): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(181): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(70): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(161): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(203): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(202): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(201): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   Jenova.vcxproj -> E:\Pedro\Jenova\Jenova\x64\Debug\Jenova.exe
