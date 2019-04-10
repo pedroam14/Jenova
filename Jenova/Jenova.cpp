@@ -7,7 +7,7 @@ class Jenova : public JenovaConsole
 {
 	struct Vector3D
 	{
-		float x, y, z;
+		double x, y, z;
 	};
 	struct Triangle
 	{
@@ -19,15 +19,17 @@ class Jenova : public JenovaConsole
 	};
 	struct Matrix4x4
 	{
-		float matrix[4][4] = { 0 };
+		double matrix[4][4] = { 0 };
 	};
 
 public:
+#pragma region "Public Constants"
+	double theta;
+#pragma endregion
 	Jenova()
 	{
 		m_sAppName = L"3D Demo";
 	}
-
 	bool OnUserCreate() override
 	{
 		cube.triangles = {
@@ -57,11 +59,11 @@ public:
 		};
 
 		//projection matrix;
-		float nearPlane = 0.1f;
-		float farPlane = 1000.0f;
-		float fieldOfView = 90.0f;
-		float aspectRatio = (float)ScreenHeight() / (float)ScreenWidth();
-		float fieldOfViewRad = 1.0f / tanf(fieldOfView * 0.5 / 180.0f * PI);
+		double nearPlane = 0.1f;
+		double farPlane = 1000.0f;
+		double fieldOfView = 90.0f;
+		double aspectRatio = (double)ScreenHeight() / (double)ScreenWidth();
+		double fieldOfViewRad = 1.0f / tanf(fieldOfView * 0.5 / 180.0f * PI);
 
 		matrixProjection.matrix[0][0] = aspectRatio * fieldOfViewRad;
 		matrixProjection.matrix[1][1] = fieldOfViewRad;
@@ -72,18 +74,53 @@ public:
 
 		return true;
 	}
-	bool OnUserUpdate(float fElapsedTime) override
+	bool OnUserUpdate(double elapsedTime) override
 	{
 		Fill(0, 0, ScreenWidth(), ScreenHeight(), PIXEL_SOLID, FG_BLACK);
+
+		Matrix4x4 matrixRotationZ, matrixRotationX;
+
+		theta += 1.0 * elapsedTime;
+
+		//z rotation
+		matrixRotationZ.matrix[0][0] = cos(theta);
+		matrixRotationZ.matrix[0][1] = sin(theta);
+		matrixRotationZ.matrix[1][0] = -sin(theta);
+		matrixRotationZ.matrix[1][1] = cos(theta);
+		matrixRotationZ.matrix[2][2] = 1;
+		matrixRotationZ.matrix[3][3] = 1;
+
+		//x rotation
+		matrixRotationX.matrix[0][0] = 1;
+		matrixRotationX.matrix[1][1] = cos(theta*0.5);
+		matrixRotationX.matrix[1][2] = sin(theta*0.5);
+		matrixRotationX.matrix[2][1] = -sin(theta*0.5);
+		matrixRotationX.matrix[2][2] = cos(theta*0.5);
+		matrixRotationX.matrix[3][3] = 1;
 
 		//draw triangles
 		for (auto triangle : cube.triangles)
 		{
-			Triangle projectedTriangle;
+			Triangle projectedTriangle, translatedTriangle, triangleRotatedZ, triangleRotatedZX;
+			
+
+			MultiplyMatrixVector(triangle.points[0], triangleRotatedZ.points[0], matrixRotationZ);
+			MultiplyMatrixVector(triangle.points[1], triangleRotatedZ.points[1], matrixRotationZ);
+			MultiplyMatrixVector(triangle.points[2], triangleRotatedZ.points[2], matrixRotationZ);
+
+			MultiplyMatrixVector(triangleRotatedZ.points[0], triangleRotatedZX.points[0], matrixRotationX);
+			MultiplyMatrixVector(triangleRotatedZ.points[1], triangleRotatedZX.points[1], matrixRotationX);
+			MultiplyMatrixVector(triangleRotatedZ.points[2], triangleRotatedZX.points[2], matrixRotationX);
+
+			translatedTriangle = triangleRotatedZX;
+			translatedTriangle.points[0].z += 3.0f;
+			translatedTriangle.points[1].z += 3.0f;
+			translatedTriangle.points[2].z += 3.0f;
+
 			//maybe do this in parallel if it's worth it, otherwise doing it explicitly has less overhead than a simple for loop and actually *is* better for very short operations
-			MultiplyMatrixVector(triangle.points[0], projectedTriangle.points[0], matrixProjection);
-			MultiplyMatrixVector(triangle.points[1], projectedTriangle.points[1], matrixProjection);
-			MultiplyMatrixVector(triangle.points[2], projectedTriangle.points[2], matrixProjection);
+			MultiplyMatrixVector(translatedTriangle.points[0], projectedTriangle.points[0], matrixProjection);
+			MultiplyMatrixVector(translatedTriangle.points[1], projectedTriangle.points[1], matrixProjection);
+			MultiplyMatrixVector(translatedTriangle.points[2], projectedTriangle.points[2], matrixProjection);
 
 			//scaling the triangles into view
 			projectedTriangle.points[0].x += 1.0f;
@@ -93,12 +130,12 @@ public:
 			projectedTriangle.points[2].x += 1.0f;
 			projectedTriangle.points[2].y += 1.0f;
 
-			projectedTriangle.points[0].x *= .5f * (float)ScreenWidth();
-			projectedTriangle.points[0].y *= .5f * (float)ScreenHeight();
-			projectedTriangle.points[1].x *= .5f * (float)ScreenWidth();
-			projectedTriangle.points[1].y *= .5f * (float)ScreenHeight();
-			projectedTriangle.points[2].x *= .5f * (float)ScreenWidth();
-			projectedTriangle.points[2].y *= .5f * (float)ScreenHeight();
+			projectedTriangle.points[0].x *= .5f * (double)ScreenWidth();
+			projectedTriangle.points[0].y *= .5f * (double)ScreenHeight();
+			projectedTriangle.points[1].x *= .5f * (double)ScreenWidth();
+			projectedTriangle.points[1].y *= .5f * (double)ScreenHeight();
+			projectedTriangle.points[2].x *= .5f * (double)ScreenWidth();
+			projectedTriangle.points[2].y *= .5f * (double)ScreenHeight();
 
 			DrawTriangle(projectedTriangle.points[0].x, projectedTriangle.points[0].y,
 				projectedTriangle.points[1].x, projectedTriangle.points[1].y,
@@ -119,7 +156,7 @@ private:
 		o.x = i.x * m.matrix[0][0] + i.y * m.matrix[1][0] + i.z * m.matrix[2][0] + m.matrix[3][0];
 		o.y = i.x * m.matrix[0][1] + i.y * m.matrix[1][1] + i.z * m.matrix[2][1] + m.matrix[3][1];
 		o.z = i.x * m.matrix[0][2] + i.y * m.matrix[1][2] + i.z * m.matrix[2][2] + m.matrix[3][2];
-		float w = i.x * m.matrix[0][3] + i.y * m.matrix[1][3] + i.z * m.matrix[2][3] + m.matrix[3][3];
+		double w = i.x * m.matrix[0][3] + i.y * m.matrix[1][3] + i.z * m.matrix[2][3] + m.matrix[3][3];
 
 		if (w != 0.0f)
 		{
@@ -128,7 +165,6 @@ private:
 			o.z /= w;
 		}
 	};
-	
 };
 int main()
 {
@@ -139,7 +175,5 @@ int main()
 	}
 	else
 	{
-
 	}
-
 }

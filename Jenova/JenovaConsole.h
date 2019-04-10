@@ -132,20 +132,20 @@ public:
 			return m_Colours[y * nWidth + x];
 	}
 
-	short SampleGlyph(float x, float y)
+	short SampleGlyph(double x, double y)
 	{
-		int sx = (int)(x * (float)nWidth);
-		int sy = (int)(y * (float)nHeight - 1.0f);
+		int sx = (int)(x * (double)nWidth);
+		int sy = (int)(y * (double)nHeight - 1.0f);
 		if (sx < 0 || sx >= nWidth || sy < 0 || sy >= nHeight)
 			return L' ';
 		else
 			return m_Glyphs[sy * nWidth + sx];
 	}
 
-	short SampleColour(float x, float y)
+	short SampleColour(double x, double y)
 	{
-		int sx = (int)(x * (float)nWidth);
-		int sy = (int)(y * (float)nHeight - 1.0f);
+		int sx = (int)(x * (double)nWidth);
+		int sy = (int)(y * (double)nHeight - 1.0f);
 		if (sx < 0 || sx >= nWidth || sy < 0 || sy >= nHeight)
 			return FG_BLACK;
 		else
@@ -635,13 +635,13 @@ public:
 		}
 	}
 
-	void DrawWireFrameModel(const std::vector<std::pair<float, float>> &vecModelCoordinates, float x, float y, float r = 0.0f, float s = 1.0f, short col = FG_WHITE, short c = PIXEL_SOLID)
+	void DrawWireFrameModel(const std::vector<std::pair<double, double>> &vecModelCoordinates, double x, double y, double r = 0.0f, double s = 1.0f, short col = FG_WHITE, short c = PIXEL_SOLID)
 	{
 		// pair.first = x coordinate
 		// pair.second = y coordinate
 
 		// Create translated model vector of coordinate pairs
-		std::vector<std::pair<float, float>> vecTransformedCoordinates;
+		std::vector<std::pair<double, double>> vecTransformedCoordinates;
 		int verts = vecModelCoordinates.size();
 		vecTransformedCoordinates.resize(verts);
 
@@ -729,9 +729,9 @@ private:
 			{
 				// Handle Timing
 				tp2 = std::chrono::system_clock::now();
-				std::chrono::duration<float> elapsedTime = tp2 - tp1;
+				std::chrono::duration<double> elapsedTime = tp2 - tp1;
 				tp1 = tp2;
-				float fElapsedTime = elapsedTime.count();
+				double fElapsedTime = elapsedTime.count();
 
 				// Handle Keyboard Input
 				for (int i = 0; i < 256; i++)
@@ -866,7 +866,7 @@ private:
 public:
 	// User MUST OVERRIDE THESE!!
 	virtual bool OnUserCreate() = 0;
-	virtual bool OnUserUpdate(float fElapsedTime) = 0;
+	virtual bool OnUserUpdate(double fElapsedTime) = 0;
 
 	// Optional for clean up 
 	virtual bool OnUserDestroy() { return true; }
@@ -885,7 +885,7 @@ protected: // Audio Engine =====================================================
 
 		JenovaAudioSample(std::wstring sWavFile)
 		{
-			// Load Wav file and convert to float format
+			// Load Wav file and convert to double format
 			FILE *f = nullptr;
 			_wfopen_s(&f, sWavFile.c_str(), L"rb");
 			if (f == nullptr)
@@ -924,13 +924,13 @@ protected: // Audio Engine =====================================================
 				std::fread(&nChunksize, sizeof(long), 1, f);
 			}
 
-			// Finally got to data, so read it all in and convert to float samples
+			// Finally got to data, so read it all in and convert to double samples
 			nSamples = nChunksize / (wavHeader.nChannels * (wavHeader.wBitsPerSample >> 3));
 			nChannels = wavHeader.nChannels;
 
-			// Create floating point buffer to hold audio sample
-			fSample = new float[nSamples * nChannels];
-			float *pSample = fSample;
+			// Create doubleing point buffer to hold audio sample
+			fSample = new double[nSamples * nChannels];
+			double *pSample = fSample;
 
 			// Read in audio data and normalise
 			for (long i = 0; i < nSamples; i++)
@@ -939,7 +939,7 @@ protected: // Audio Engine =====================================================
 				{
 					short s = 0;
 					std::fread(&s, sizeof(short), 1, f);
-					*pSample = (float)s / (float)(MAXSHORT);
+					*pSample = (double)s / (double)(MAXSHORT);
 					pSample++;
 				}
 			}
@@ -950,7 +950,7 @@ protected: // Audio Engine =====================================================
 		}
 
 		WAVEFORMATEX wavHeader;
-		float *fSample = nullptr;
+		double *fSample = nullptr;
 		long nSamples = 0;
 		int nChannels = 0;
 		bool bSampleValid = false;
@@ -1089,11 +1089,11 @@ protected: // Audio Engine =====================================================
 	void AudioThread()
 	{
 		m_fGlobalTime = 0.0f;
-		float fTimeStep = 1.0f / (float)m_nSampleRate;
+		double fTimeStep = 1.0f / (double)m_nSampleRate;
 
 		// Goofy hack to get maximum integer for a type at run-time
 		short nMaxSample = (short)pow(2, (sizeof(short) * 8) - 1) - 1;
-		float fMaxSample = (float)nMaxSample;
+		double fMaxSample = (double)nMaxSample;
 		short nPreviousSample = 0;
 
 		while (m_bAudioThreadActive)
@@ -1116,7 +1116,7 @@ protected: // Audio Engine =====================================================
 			short nNewSample = 0;
 			int nCurrentBlock = m_nBlockCurrent * m_nBlockSamples;
 
-			auto clip = [](float fSample, float fMax)
+			auto clip = [](double fSample, double fMax)
 			{
 				if (fSample >= 0.0)
 					return fmin(fSample, fMax);
@@ -1146,13 +1146,13 @@ protected: // Audio Engine =====================================================
 	}
 
 	// Overridden by user if they want to generate sound in real-time
-	virtual float onUserSoundSample(int nChannel, float fGlobalTime, float fTimeStep)
+	virtual double onUserSoundSample(int nChannel, double fGlobalTime, double fTimeStep)
 	{
 		return 0.0f;
 	}
 
 	// Overriden by user if they want to manipulate the sound before it is played
-	virtual float onUserSoundFilter(int nChannel, float fGlobalTime, float fSample)
+	virtual double onUserSoundFilter(int nChannel, double fGlobalTime, double fSample)
 	{
 		return fSample;
 	}
@@ -1174,15 +1174,15 @@ protected: // Audio Engine =====================================================
 	// Finally, before the sound is issued to the operating system for performing, the
 	// user gets one final chance to "filter" the sound, perhaps changing the volume
 	// or adding funky effects
-	float GetMixerOutput(int nChannel, float fGlobalTime, float fTimeStep)
+	double GetMixerOutput(int nChannel, double fGlobalTime, double fTimeStep)
 	{
 		// Accumulate sample for this channel
-		float fMixerSample = 0.0f;
+		double fMixerSample = 0.0f;
 
 		for (auto &s : listActiveSamples)
 		{
 			// Calculate sample position
-			s.nSamplePosition += (long)((float)vecAudioSamples[s.nAudioSampleID - 1].wavHeader.nSamplesPerSec * fTimeStep);
+			s.nSamplePosition += (long)((double)vecAudioSamples[s.nAudioSampleID - 1].wavHeader.nSamplesPerSec * fTimeStep);
 
 			// If sample position is valid add to the mix
 			if (s.nSamplePosition < vecAudioSamples[s.nAudioSampleID - 1].nSamples)
@@ -1216,7 +1216,7 @@ protected: // Audio Engine =====================================================
 	std::atomic<unsigned int> m_nBlockFree = 0;
 	std::condition_variable m_cvBlockNotZero;
 	std::mutex m_muxBlockNotZero;
-	std::atomic<float> m_fGlobalTime = 0.0f;
+	std::atomic<double> m_fGlobalTime = 0.0f;
 
 
 
