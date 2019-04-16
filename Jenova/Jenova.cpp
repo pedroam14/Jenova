@@ -2,9 +2,12 @@
 #include <strstream>
 #include <fstream>
 #include <algorithm>
+
+#define GLEW_STATIC //we need this for some glew definitions
 #include <GL/glew.h>
 #include <GL/wglew.h>
 #include <GLFW/glfw3.h>
+#include "Jenova.h"
 
 
 #pragma region "Constants"
@@ -103,7 +106,7 @@ public:
 			{1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f},
 		};
 		//replace with whatever model you'd like my duderino
-		tifaMesh.LoadObjectFromFile("Resources/tifa2.obj");
+		tifaMesh.LoadObjectFromFile("Resources\teapot.obj");
 
 		//projection matrix;
 		matrixProjection = Matrix_MakeProjection(90.0, (double)ScreenHeight() / (double)ScreenWidth(), 0.1, 100.0);
@@ -690,10 +693,25 @@ private:
 #pragma region "Public Stuff to be sent over to OpenGL"
 public:
 	Mesh publicMesh;
-public:
 	void SetMesh() {
-		publicMesh.LoadObjectFromFile("Resources/tifa2.obj");
+		publicMesh.LoadObjectFromFile("Resources\teapot.obj");
 	}
+	void FlattenValues(double doubleArray[], Mesh mesh)
+	{
+		int aux = 0;
+		for (auto tri : mesh.triangles)
+		{
+			for (auto point : tri.points)
+			{
+				doubleArray[aux] = point.x;
+				doubleArray[aux + 1] = point.y;
+				doubleArray[aux + 2] = point.z;
+				doubleArray[aux + 3] = point.w;
+				aux += 4;
+			}
+		}
+	}
+
 #pragma endregion
 
 	CHAR_INFO GetColour(double lum)
@@ -794,7 +812,7 @@ int main(void)
 	}
 
 	//*/
-	/*
+	///*
 	//creates the glfw window
 	GLFWwindow *window;
 
@@ -825,17 +843,23 @@ int main(void)
 	}
 
 
-	/*
+	///*
 	unsigned int buffer;
-	if (demo.publicMesh.LoadObjectFromFile("tifa2.obj"))
+	if (demo.publicMesh.LoadObjectFromFile("Resources\teapot.obj"))
 	{
 		glGenBuffers(1, &buffer);
 		glBindBuffer(GL_ARRAY_BUFFER, buffer);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(demo.publicMesh), 3 * demo.publicMesh.triangles.size * sizeof(double), )
+		//demo.FlattenValues(flattenedArray, demo.publicMesh);
+		double values[6] = {
+			-0.5,-0.5,
+			0.0,0.5,
+			0.5,-0.5
+		};
+		glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(double), values, GL_STATIC_DRAW);
 	}
-	*/
+	//*/
 	//loop until the user closes the window
-	/*
+	///*
 	while (!glfwWindowShouldClose(window))
 	{
 		//render here
@@ -853,6 +877,6 @@ int main(void)
 	}
 
 	glfwTerminate();
-	*/
+	//*/
 	return 0;
 }

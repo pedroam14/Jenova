@@ -4,186 +4,22 @@ e:\pedro\jenova\jenova\jenova\jenovaconsole.h(651): warning C4244: 'argument': c
 e:\pedro\jenova\jenova\jenova\jenovaconsole.h(652): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 e:\pedro\jenova\jenova\jenova\jenovaconsole.h(985): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
 e:\pedro\jenova\jenova\jenova\jenovaconsole.h(1082): warning C4312: 'type cast': conversion from 'DWORD' to 'JenovaConsole *' of greater size
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(138): error C2061: syntax error: identifier 'GLint'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(145): error C2061: syntax error: identifier 'GLenum'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(565): error C2059: syntax error: '__cdecl'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(566): error C2059: syntax error: '__cdecl'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(567): error C2065: 'GLushort': undeclared identifier
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(567): error C2146: syntax error: missing ')' before identifier 'id'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(568): error C2059: syntax error: '__cdecl'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(920): error C2061: syntax error: identifier 'GLint'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(921): error C2061: syntax error: identifier 'GLenum'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(923): error C2061: syntax error: identifier 'GLuint'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(925): error C2061: syntax error: identifier 'GLint'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(955): error C2061: syntax error: identifier 'GLuint'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(968): error C2061: syntax error: identifier 'GLfloat'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1095): error C2065: 'GLuint': undeclared identifier
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1095): error C2146: syntax error: missing ')' before identifier 'group'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1096): error C2061: syntax error: identifier 'GLuint'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1097): error C2061: syntax error: identifier 'GLuint'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1098): error C2061: syntax error: identifier 'GLuint'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1099): error C2061: syntax error: identifier 'GLuint'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1118): error C2065: 'GLsizei': undeclared identifier
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1118): error C2146: syntax error: missing ')' before identifier 'size'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): error C2146: syntax error: missing ';' before identifier 'PFNWGLSETSTEREOEMITTERSTATE3DLPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1223): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1223): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1223): error C2146: syntax error: missing ';' before identifier 'PFNWGLBLITCONTEXTFRAMEBUFFERAMDPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1224): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1224): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1224): error C2146: syntax error: missing ';' before identifier 'PFNWGLCREATEASSOCIATEDCONTEXTAMDPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1225): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1225): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1225): error C2146: syntax error: missing ';' before identifier 'PFNWGLCREATEASSOCIATEDCONTEXTATTRIBSAMDPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1226): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1226): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1226): error C2146: syntax error: missing ';' before identifier 'PFNWGLDELETEASSOCIATEDCONTEXTAMDPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1227): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1227): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1227): error C2146: syntax error: missing ';' before identifier 'PFNWGLGETCONTEXTGPUIDAMDPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1228): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1228): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1228): error C2146: syntax error: missing ';' before identifier 'PFNWGLGETCURRENTASSOCIATEDCONTEXTAMDPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1229): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1229): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1229): error C2146: syntax error: missing ';' before identifier 'PFNWGLGETGPUIDSAMDPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1230): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1230): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1230): error C2146: syntax error: missing ';' before identifier 'PFNWGLGETGPUINFOAMDPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1231): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1231): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1231): error C2146: syntax error: missing ';' before identifier 'PFNWGLMAKEASSOCIATEDCONTEXTCURRENTAMDPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1233): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1233): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1233): error C2146: syntax error: missing ';' before identifier 'PFNWGLCREATEBUFFERREGIONARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1234): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1234): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1234): error C2146: syntax error: missing ';' before identifier 'PFNWGLDELETEBUFFERREGIONARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1235): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1235): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1235): error C2146: syntax error: missing ';' before identifier 'PFNWGLRESTOREBUFFERREGIONARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1236): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1236): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1236): error C2146: syntax error: missing ';' before identifier 'PFNWGLSAVEBUFFERREGIONARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1238): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1238): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1238): error C2146: syntax error: missing ';' before identifier 'PFNWGLCREATECONTEXTATTRIBSARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1240): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1240): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1240): error C2146: syntax error: missing ';' before identifier 'PFNWGLGETEXTENSIONSSTRINGARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1242): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1242): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1242): error C2146: syntax error: missing ';' before identifier 'PFNWGLGETCURRENTREADDCARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1243): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1243): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1243): error C2146: syntax error: missing ';' before identifier 'PFNWGLMAKECONTEXTCURRENTARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1245): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1245): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1245): error C2146: syntax error: missing ';' before identifier 'PFNWGLCREATEPBUFFERARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1246): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1246): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1246): error C2146: syntax error: missing ';' before identifier 'PFNWGLDESTROYPBUFFERARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1247): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1247): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1247): error C2146: syntax error: missing ';' before identifier 'PFNWGLGETPBUFFERDCARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1248): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1248): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1248): error C2146: syntax error: missing ';' before identifier 'PFNWGLQUERYPBUFFERARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1249): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1249): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1249): error C2146: syntax error: missing ';' before identifier 'PFNWGLRELEASEPBUFFERDCARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1251): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1251): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1251): error C2146: syntax error: missing ';' before identifier 'PFNWGLCHOOSEPIXELFORMATARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1252): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1252): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1252): error C2146: syntax error: missing ';' before identifier 'PFNWGLGETPIXELFORMATATTRIBFVARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1253): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1253): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1253): error C2146: syntax error: missing ';' before identifier 'PFNWGLGETPIXELFORMATATTRIBIVARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1255): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1255): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1255): error C2146: syntax error: missing ';' before identifier 'PFNWGLBINDTEXIMAGEARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1256): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1256): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1256): error C2146: syntax error: missing ';' before identifier 'PFNWGLRELEASETEXIMAGEARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1257): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1257): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1257): error C2146: syntax error: missing ';' before identifier 'PFNWGLSETPBUFFERATTRIBARBPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1259): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1259): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1259): error C2146: syntax error: missing ';' before identifier 'PFNWGLBINDDISPLAYCOLORTABLEEXTPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1260): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1260): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1260): error C2146: syntax error: missing ';' before identifier 'PFNWGLCREATEDISPLAYCOLORTABLEEXTPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1261): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1261): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1261): error C2146: syntax error: missing ';' before identifier 'PFNWGLDESTROYDISPLAYCOLORTABLEEXTPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1262): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1262): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1262): error C2146: syntax error: missing ';' before identifier 'PFNWGLLOADDISPLAYCOLORTABLEEXTPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1264): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1264): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1264): error C2146: syntax error: missing ';' before identifier 'PFNWGLGETEXTENSIONSSTRINGEXTPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1266): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1266): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1266): error C2146: syntax error: missing ';' before identifier 'PFNWGLGETCURRENTREADDCEXTPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1267): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1267): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1267): error C2146: syntax error: missing ';' before identifier 'PFNWGLMAKECONTEXTCURRENTEXTPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1269): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1269): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1269): error C2146: syntax error: missing ';' before identifier 'PFNWGLCREATEPBUFFEREXTPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1270): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1270): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1270): error C2146: syntax error: missing ';' before identifier 'PFNWGLDESTROYPBUFFEREXTPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1271): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1271): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1271): error C2146: syntax error: missing ';' before identifier 'PFNWGLGETPBUFFERDCEXTPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1272): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1272): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1272): error C2146: syntax error: missing ';' before identifier 'PFNWGLQUERYPBUFFEREXTPROC'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1273): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1273): error C2086: 'int GLEW_FUN_EXPORT': redefinition
-  e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1221): note: see declaration of 'GLEW_FUN_EXPORT'
-e:\pedro\jenova\jenova\jenova\dependencies\glew\include\gl\wglew.h(1273): fatal error C1003: error count exceeds 100; stopping compilation
+e:\pedro\jenova\jenova\jenova\jenova.cpp(334): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(340): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(402): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(403): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(404): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(405): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(413): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(414): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(415): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(417): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(425): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(426): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(427): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(428): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(449): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(557): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(692): warning C4715: 'Jenova::Triangle_ClipAgainstPlane': not all control paths return a value
+E:\VIsual Studio\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(1215,5): warning MSB8012: TargetPath(E:\Pedro\Jenova\Jenova\x64\Debug\Jenova.exe) does not match the Linker's OutputFile property value (). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+  Jenova.vcxproj -> E:\Pedro\Jenova\Jenova\x64\Debug\Jenova.exe

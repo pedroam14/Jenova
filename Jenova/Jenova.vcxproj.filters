@@ -23,9 +23,21 @@
     <ClInclude Include="JenovaConsole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Jenova.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Object Include="Resources\tifa2.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="Resources\teapot.obj">
       <Filter>Resource Files</Filter>
     </Object>
   </ItemGroup>
