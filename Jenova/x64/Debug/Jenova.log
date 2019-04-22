@@ -4,22 +4,22 @@ e:\pedro\jenova\jenova\jenova\jenovaconsole.h(651): warning C4244: 'argument': c
 e:\pedro\jenova\jenova\jenova\jenovaconsole.h(652): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 e:\pedro\jenova\jenova\jenova\jenovaconsole.h(985): warning C4267: 'return': conversion from 'size_t' to 'unsigned int', possible loss of data
 e:\pedro\jenova\jenova\jenova\jenovaconsole.h(1082): warning C4312: 'type cast': conversion from 'DWORD' to 'JenovaConsole *' of greater size
-e:\pedro\jenova\jenova\jenova\jenova.cpp(334): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(340): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(402): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(403): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(404): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(405): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(330): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(336): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(398): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(399): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(400): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(401): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(409): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(410): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(411): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 e:\pedro\jenova\jenova\jenova\jenova.cpp(413): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(414): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(415): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(417): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(425): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(426): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(427): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(428): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(449): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(557): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-e:\pedro\jenova\jenova\jenova\jenova.cpp(692): warning C4715: 'Jenova::Triangle_ClipAgainstPlane': not all control paths return a value
-E:\VIsual Studio\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(1215,5): warning MSB8012: TargetPath(E:\Pedro\Jenova\Jenova\x64\Debug\Jenova.exe) does not match the Linker's OutputFile property value (). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
-  Jenova.vcxproj -> E:\Pedro\Jenova\Jenova\x64\Debug\Jenova.exe
+e:\pedro\jenova\jenova\jenova\jenova.cpp(421): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(422): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(423): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(424): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(445): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(553): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+e:\pedro\jenova\jenova\jenova\jenova.cpp(688): warning C4715: 'Jenova::Triangle_ClipAgainstPlane': not all control paths return a value
+Jenova.obj : error LNK2019: unresolved external symbol "public: __cdecl olc::Pixel::Pixel(unsigned char,unsigned char,unsigned char,unsigned char)" (??0Pixel@olc@@QEAA@EEEE@Z) referenced in function "void __cdecl olc::`dynamic initializer for 'BLACK''(void)" (??__EBLACK@olc@@YAXXZ)
+E:\Pedro\Jenova\Jenova\x64\Debug\Jenova.exe : fatal error LNK1120: 1 unresolved externals

@@ -2,12 +2,8 @@
 #include <strstream>
 #include <fstream>
 #include <algorithm>
-
-#define GLEW_STATIC //we need this for some glew definitions
-#include <GL/glew.h>
-#include <GL/wglew.h>
-#include <GLFW/glfw3.h>
 #include "Jenova.h"
+#include "JenovaPixel.h"
 
 
 #pragma region "Constants"
@@ -106,7 +102,7 @@ public:
 			{1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f},
 		};
 		//replace with whatever model you'd like my duderino
-		tifaMesh.LoadObjectFromFile("Resources\teapot.obj");
+		currentMesh.LoadObjectFromFile("Resources/tifa2.obj");
 
 		//projection matrix;
 		matrixProjection = Matrix_MakeProjection(90.0, (double)ScreenHeight() / (double)ScreenWidth(), 0.1, 100.0);
@@ -174,7 +170,7 @@ public:
 		std::vector<Triangle> vecTrianglesToRaster;
 
 		// Draw Triangles
-		for (auto tri : tifaMesh.triangles)
+		for (auto tri : currentMesh.triangles)
 		{
 			Triangle triProjected, triTransformed, triViewed;
 
@@ -207,7 +203,7 @@ public:
 				light_direction = Vector_Normalise(light_direction);
 
 				// How "aligned" are light direction and triangle surface normal?
-				double dp = max(0.1f, Vector_DotProduct(light_direction, normal));
+				double dp = std::max(0.1, Vector_DotProduct(light_direction, normal));
 
 				// Choose console colours as required (much easier with RGB)
 				CHAR_INFO c = GetColour(dp);
@@ -348,7 +344,7 @@ public:
 private:
 #pragma region "Private variables"
 	Mesh cube;
-	Mesh tifaMesh;
+	Mesh currentMesh;
 	Matrix4x4 matrixProjection;
 
 	Vector3D light_direction = { 0.0f, 0.0f, -1.0f };
@@ -694,7 +690,7 @@ private:
 public:
 	Mesh publicMesh;
 	void SetMesh() {
-		publicMesh.LoadObjectFromFile("Resources\teapot.obj");
+		publicMesh.LoadObjectFromFile("Resources\tifa2.obj");
 	}
 	void FlattenValues(double doubleArray[], Mesh mesh)
 	{
@@ -801,9 +797,9 @@ public:
 		return c;
 	}
 };
-int main(void)
+int main()
 {
-
+	///*
 	Jenova demo;
 	///*
 	if (demo.ConstructConsole(256, 240, 4, 4))
@@ -812,7 +808,7 @@ int main(void)
 	}
 
 	//*/
-	///*
+	/*
 	//creates the glfw window
 	GLFWwindow *window;
 
@@ -845,21 +841,20 @@ int main(void)
 
 	///*
 	unsigned int buffer;
-	if (demo.publicMesh.LoadObjectFromFile("Resources\teapot.obj"))
-	{
-		glGenBuffers(1, &buffer);
-		glBindBuffer(GL_ARRAY_BUFFER, buffer);
-		//demo.FlattenValues(flattenedArray, demo.publicMesh);
-		double values[6] = {
-			-0.5,-0.5,
-			0.0,0.5,
-			0.5,-0.5
-		};
-		glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(double), values, GL_STATIC_DRAW);
-	}
+
+	glGenBuffers(1, &buffer);
+	glBindBuffer(GL_ARRAY_BUFFER, buffer);
+	//demo.FlattenValues(flattenedArray, demo.publicMesh);
+	double values[6] = {
+		-0.5,-0.5,
+		0.0,0.5,
+		0.5,-0.5
+	};
+	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(double), values, GL_STATIC_DRAW);
+
 	//*/
 	//loop until the user closes the window
-	///*
+	/*
 	while (!glfwWindowShouldClose(window))
 	{
 		//render here
